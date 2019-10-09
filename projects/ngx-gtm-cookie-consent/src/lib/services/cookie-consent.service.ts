@@ -15,11 +15,13 @@ export class CookieConsentService implements OnDestroy {
 
   private readonly defaultConfig: CookieConsentServiceConfig = {
     enable: false,
-    cookieName: 'expo-cookieconsent',
+    cookieName: 'ngx-gtm-cookie-consent',
     gtmPageViewEventName: 'angular-page-view',
     gtmDataLayerName: 'dataLayer',
     cookieConsentPopUpConfig: undefined
   };
+
+  private readonly namespace = (window as any)['ngxGtmCookieConsent'];
 
   constructor(
     @Inject(PLATFORM_ID)
@@ -56,7 +58,7 @@ export class CookieConsentService implements OnDestroy {
   }
 
   private pushPageViewEvent() {
-    const dataLayer = window[(window as any).exportarts.tracking.dataLayerName] as any;
+    const dataLayer = window[this.namespace.tracking.dataLayerName] as any;
     if (typeof dataLayer !== 'undefined') {
       dataLayer.push({
         event: this.config.gtmPageViewEventName || this.defaultConfig.gtmPageViewEventName,
@@ -71,24 +73,25 @@ export class CookieConsentService implements OnDestroy {
     this.config.gtmDataLayerName = this.config.gtmDataLayerName || this.defaultConfig.gtmDataLayerName;
     this.config.cookieMaxAge = 60 * 60 * 24 * 365; // 1 year
 
-    (window as any).exportarts.cookieConsent.cookieName = this.config.cookieName;
-    (window as any).exportarts.tracking.gtmContainerId = this.config.gtmContainerId;
-    (window as any).exportarts.tracking.enabled = this.config.enable;
-    (window as any).exportarts.tracking.dataLayerName = this.config.gtmDataLayerName;
-    (window[(window as any).exportarts.tracking.dataLayerName] as any) = [];
+    this.namespace.cookieConsent.cookieName = this.config.cookieName;
+    this.namespace.tracking.gtmContainerId = this.config.gtmContainerId;
+    this.namespace.tracking.enabled = this.config.enable;
+    this.namespace.tracking.dataLayerName = this.config.gtmDataLayerName;
+    (window[this.namespace.tracking.dataLayerName] as any) = [];
 
     this.config.cookieConsentPopUpConfig.cookie.name = this.config.cookieName;
+    this.consentService.destroy();
     this.consentService.init(this.config.cookieConsentPopUpConfig);
   }
 
   private initCookieConsent() {
-    const dispatch = () => window.dispatchEvent(new Event((window as any).exportarts.cookieConsent.eventName));
+    const dispatch = () => window.dispatchEvent(new Event(this.namespace.cookieConsent.eventName));
     
     // Dispatch an event when the cookie consent status changes
     this.cookieConsentStatusChangeSubscription = this.consentService.statusChange$.subscribe(event => {
       document.cookie = `${this.consentService.getConfig().cookie.name}=${event.status};max-age=${this.config.cookieMaxAge}`
       
-      const dataLayer = window[(window as any).exportarts.tracking.dataLayerName] as any;
+      const dataLayer = window[this.namespace.tracking.dataLayerName] as any;
       if (typeof dataLayer !== 'undefined' && dataLayer.length === 0) {
         this.pushPageViewEvent();
       }
