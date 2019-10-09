@@ -5,4 +5,3 @@
 export * from './lib/cookie.module';
 export * from './lib/services/cookie-consent.service';
 export * from './lib/services/cookie-consent.config';
-export * from './lib/js/cookie-consent';

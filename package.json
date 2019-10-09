@@ -2,7 +2,10 @@
   "name": "ngx-gtm-cookie-consent",
   "version": "0.0.1",
   "scripts": {
-    "build": "ng build ngx-gtm-cookie-consent"
+    "prebuild": "rm -rf dist",
+    "build": "npm run bundle-angular-package && npm run compile-static-js",
+    "bundle-angular-package": "ng build ngx-gtm-cookie-consent",
+    "compile-static-js": "./node_modules/.bin/babel projects/ngx-gtm-cookie-consent/src/static-js --out-dir dist/ngx-gtm-cookie-consent/static-js"
   },
   "private": false,
   "author": {
@@ -31,9 +34,13 @@
     "@angular/cli": "7.3.9",
     "@angular/compiler-cli": "8.2.9",
     "@angular/language-service": "8.2.9",
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
     "@types/jasmine": "2.8.16",
     "@types/jasminewd2": "2.0.8",
     "@types/node": "8.9.5",
+    "babel-preset-minify": "^0.5.1",
     "codelyzer": "4.5.0",
     "jasmine-core": "2.99.1",
     "jasmine-spec-reporter": "4.2.1",
