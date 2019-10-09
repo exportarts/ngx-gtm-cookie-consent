@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-gtm-cookie-consent": {
+      "root": "projects/ngx-gtm-cookie-consent",
+      "sourceRoot": "projects/ngx-gtm-cookie-consent/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-gtm-cookie-consent/tsconfig.lib.json",
+            "project": "projects/ngx-gtm-cookie-consent/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-gtm-cookie-consent/src/test.ts",
+            "tsConfig": "projects/ngx-gtm-cookie-consent/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-gtm-cookie-consent/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-gtm-cookie-consent/tsconfig.lib.json",
+              "projects/ngx-gtm-cookie-consent/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-gtm-cookie-consent"
+}
