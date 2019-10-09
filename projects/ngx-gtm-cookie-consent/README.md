@@ -1,24 +1,7 @@
-# GtmCookieConsent
+# ngx-gtm-cookie-consent
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+[![npm](https://img.shields.io/npm/v/ngx-gtm-cookie-consent.svg)](https://www.npmjs.com/package/ngx-gtm-cookie-consent)
 
-## Code scaffolding
+An Angular library to comply with the GDPR and the latest european law regarding cookies 🍪
 
-Run `ng generate component component-name --project ngx-gtm-cookie-consent` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-gtm-cookie-consent`.
-> Note: Don't forget to add `--project ngx-gtm-cookie-consent` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build ngx-gtm-cookie-consent` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build ngx-gtm-cookie-consent`, go to the dist folder `cd dist/ngx-gtm-cookie-consent` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-gtm-cookie-consent` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> This project is work-in-progress. Features and Documentation are probably not complete.
