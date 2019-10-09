@@ -1,6 +1,6 @@
 {
   "name": "ngx-gtm-cookie-consent",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "npm run bundle-angular-package && npm run compile-static-js",
