@@ -2,6 +2,5 @@
   "extends": [
     "config:base"
   ],
-  "commitMessagePrefix": "Renovate:",
-  "prCreation": "status-success"
+  "commitMessagePrefix": "Renovate:"
 }
