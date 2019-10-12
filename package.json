@@ -6,7 +6,8 @@
     "build": "npm run bundle-angular-package && npm run compile-static-js && npm run copy-readme-and-docs",
     "bundle-angular-package": "ng build ngx-gtm-cookie-consent",
     "compile-static-js": "./node_modules/.bin/babel projects/ngx-gtm-cookie-consent/src/static-js --out-dir dist/ngx-gtm-cookie-consent/static-js",
-    "copy-readme-and-docs": "cp README.md ./dist/ngx-gtm-cookie-consent && cp -R ./docs ./dist/ngx-gtm-cookie-consent/"
+    "copy-readme-and-docs": "cp README.md ./dist/ngx-gtm-cookie-consent && cp -R ./docs ./dist/ngx-gtm-cookie-consent/",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "private": false,
   "author": {
