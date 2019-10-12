@@ -2,5 +2,9 @@
   "extends": [
     "config:base"
   ],
-  "commitMessagePrefix": "Renovate:"
+  "commitMessagePrefix": "Renovate:",
+  "labels": [
+    "renovate"
+  ],
+  "prCreation": "not-pending"
 }
