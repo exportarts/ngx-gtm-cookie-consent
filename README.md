@@ -1,6 +1,7 @@
 # ngx-gtm-cookie-consent
 
 [![npm](https://img.shields.io/npm/v/ngx-gtm-cookie-consent.svg)](https://www.npmjs.com/package/ngx-gtm-cookie-consent)
+[![Build Status](https://travis-ci.com/exportarts/ngx-gtm-cookie-consent.svg?branch=master)](https://travis-ci.com/exportarts/ngx-gtm-cookie-consent)
 
 An Angular library to comply with the GDPR and the latest european law regarding cookies 🍪
 
