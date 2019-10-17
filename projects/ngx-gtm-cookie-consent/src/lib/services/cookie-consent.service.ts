@@ -21,7 +21,8 @@ export class CookieConsentService implements OnDestroy {
     cookieConsentPopUpConfig: undefined
   };
 
-  private readonly namespace = (window as any)['ngxGtmCookieConsent'];
+  // A namespace in the global window object used by the library
+  private readonly namespace: any;
 
   constructor(
     @Inject(PLATFORM_ID)
@@ -32,6 +33,7 @@ export class CookieConsentService implements OnDestroy {
     private readonly router: Router
   ) {
     if (isPlatformBrowser(this.platformId)) {
+      this.namespace = (window as any)['ngxGtmCookieConsent'];
       this.initOptions();
       this.initCookieConsent();
       this.initPageViewTracking();
