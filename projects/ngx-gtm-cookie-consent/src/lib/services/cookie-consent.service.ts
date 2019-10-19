@@ -105,7 +105,7 @@ export class CookieConsentService implements OnDestroy {
   }
 
   private dispatchPageViewEvent() {
-    return window.dispatchEvent(new Event(this.namespace.cookieConsent.eventName));
+    return window.dispatchEvent(new CustomEvent(this.namespace.cookieConsent.eventName));
   }
 
 }
