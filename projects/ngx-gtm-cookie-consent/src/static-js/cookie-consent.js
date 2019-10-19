@@ -10,6 +10,20 @@ function setupGTM() {
     })(window, document, 'script', window.ngxGtmCookieConsent.tracking.dataLayerName, window.ngxGtmCookieConsent.tracking.gtmContainerId);
 }
 
+/**
+ * From: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill
+ */
+function polyfillCustomEvent() {
+    if (typeof window.CustomEvent === "function") return false;
+    function CustomEvent(event, params) {
+        params = params || { bubbles: false, cancelable: false, detail: null };
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+        return evt;
+    }
+    window.CustomEvent = CustomEvent;
+}
+
 function main() {
     // Only execute the script if run in a browser context (Angular Universal support)
     if (typeof window !== 'undefined') {
@@ -46,4 +60,5 @@ function main() {
     }
 }
 
+polyfillCustomEvent();
 main();

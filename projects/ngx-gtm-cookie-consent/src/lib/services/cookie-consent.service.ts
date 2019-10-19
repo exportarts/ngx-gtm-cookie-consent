@@ -87,8 +87,6 @@ export class CookieConsentService implements OnDestroy {
   }
 
   private initCookieConsent() {
-    const dispatch = () => window.dispatchEvent(new Event(this.namespace.cookieConsent.eventName));
-    
     // Dispatch an event when the cookie consent status changes
     this.cookieConsentStatusChangeSubscription = this.consentService.statusChange$.subscribe(event => {
       document.cookie = `${this.consentService.getConfig().cookie.name}=${event.status};max-age=${this.config.cookieMaxAge}`
@@ -98,12 +96,16 @@ export class CookieConsentService implements OnDestroy {
         this.pushPageViewEvent();
       }
 
-      dispatch();
+      this.dispatchPageViewEvent();
     });
 
     // Also dispatch one event in the beginning to take into account
     // returning visitors with cookie already set
-    dispatch();
+    this.dispatchPageViewEvent();
+  }
+
+  private dispatchPageViewEvent() {
+    return window.dispatchEvent(new CustomEvent(this.namespace.cookieConsent.eventName));
   }
 
 }

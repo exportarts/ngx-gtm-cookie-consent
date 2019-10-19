@@ -7,6 +7,7 @@ module.exports = function (api) {
     ];
 
     return {
-        presets
+        presets,
+        comments: false
     };
 }
