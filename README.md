@@ -24,12 +24,13 @@ or
     "assets": [
         {
             "glob": "**/cookie-consent.js",
-            "input": "node_modules/ngx-gtm-cookie-consent/static-js",
+            "input": "node_modules/ngx-gtm-cookie-consent/static/js",
             "output": "./ngx-gtm-cookie-consent"
         }
     ],
     "styles": [
         "node_modules/cookieconsent/build/cookieconsent.min.css"
+        "node_modules/ngx-gtm-cookie-consent/static/css/main.css",
     ],
     "scripts": [
         "node_modules/cookieconsent/build/cookieconsent.min.js"
