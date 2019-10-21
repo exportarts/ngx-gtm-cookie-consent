@@ -18,6 +18,9 @@
       "depTypeList": [
         "devDependencies"
       ],
+      "excludePackageNames": [
+        "typescript"
+      ],
       "automerge": true,
       "automergeType": "branch"
     }
