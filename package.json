@@ -3,9 +3,10 @@
   "version": "0.0.7",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "npm run bundle-angular-package && npm run compile-static-js && npm run copy-readme-and-docs",
+    "build": "npm run bundle-angular-package && npm run compile-static-js && npm run compile-scss && npm run copy-readme-and-docs",
     "bundle-angular-package": "ng build ngx-gtm-cookie-consent",
-    "compile-static-js": "./node_modules/.bin/babel projects/ngx-gtm-cookie-consent/src/static-js --out-dir dist/ngx-gtm-cookie-consent/static-js",
+    "compile-static-js": "./node_modules/.bin/babel projects/ngx-gtm-cookie-consent/src/static/js --out-dir dist/ngx-gtm-cookie-consent/static/js",
+    "compile-scss": "node-sass projects/ngx-gtm-cookie-consent/src/static/scss/main.scss -o dist/ngx-gtm-cookie-consent/static/css --output-style compressed",
     "copy-readme-and-docs": "cp README.md ./dist/ngx-gtm-cookie-consent && cp -R ./docs ./dist/ngx-gtm-cookie-consent/",
     "test": "echo \"No tests specified\" && exit 0"
   },
@@ -52,6 +53,7 @@
     "karma-jasmine": "2.0.1",
     "karma-jasmine-html-reporter": "1.4.2",
     "ng-packagr": "5.7.0",
+    "node-sass": "^4.12.0",
     "protractor": "5.4.2",
     "ts-node": "8.4.1",
     "tsickle": "0.37.0",
