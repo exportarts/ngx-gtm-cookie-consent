@@ -29,8 +29,8 @@ or
         }
     ],
     "styles": [
-        "node_modules/cookieconsent/build/cookieconsent.min.css"
-        "node_modules/ngx-gtm-cookie-consent/static/css/main.css",
+        "node_modules/cookieconsent/build/cookieconsent.min.css",
+        "node_modules/ngx-gtm-cookie-consent/static/css/main.css"
     ],
     "scripts": [
         "node_modules/cookieconsent/build/cookieconsent.min.js"
