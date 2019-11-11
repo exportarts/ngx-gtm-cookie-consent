@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/ngx-gtm-cookie-consent.svg)](https://www.npmjs.com/package/ngx-gtm-cookie-consent)
 [![Build Status](https://travis-ci.com/exportarts/ngx-gtm-cookie-consent.svg?branch=master)](https://travis-ci.com/exportarts/ngx-gtm-cookie-consent)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=exportarts_ngx-gtm-cookie-consent&metric=alert_status)](https://sonarcloud.io/dashboard?id=exportarts_ngx-gtm-cookie-consent)
 
 An Angular library to comply with the GDPR and the latest european law regarding cookies 🍪
 
