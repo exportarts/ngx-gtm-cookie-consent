@@ -4,3 +4,10 @@ node_js:
   - "10"
 script:
   - yarn build
+  - sonar-scanner
+
+addons:
+  sonarcloud:
+    organization: "exportarts"
+    token:
+      secure: fmIggfOFFavhx71bO2+t3OlWJ9LJKkV/H7esPZLfVWiigRPLV+UIiWFSy6ho9p1ekUBZIjB5xbiJh5rmFI6nK4yRmDeVov+u544UMVauvb/BLrUZY5vWG+1+5aTmi5vVcmGBSLOkRTN12qM97+3jmCw8n0c7YYfnJAMuO0MMnb98tjgRWHRCUxq0X/SMv/th1bmLlDJyGASEK/zsdU8Qc5gVt9Zz0YDcTqoQfiPcIlrTMeMLcrJ2/t+SGw3g27e9FvNrlpI0lg+a7QzUSh5v9/87MtDhWCkejLNbY6TCWXFqvWWCONYxWJeOzBCD7BNQZ14U27uLNTjj5VAUwtHdJ7Ur087dWczJa1BgHTt7tEKgjStG7JqSb+kYaUwdarwTadnziRyCsXlQUvw0Oyk1W3sMh4Aej7V7kpaNprrJElwymIP6tF5SFxWmbA++4b//KoWah5UQkB+xDN0Nw+uy/M+3Wwmoxfm9XfyaSHnZZUMersBE4YTv+cmqNyU9TABANDUXCn8pU621M2+/34pJZOdiwq3BnmWxNxBucBx7UAxKw5Su03M/DK5yZpoZU7T4Ok/pa/iM5+kS4xFQEmKk4M19F3O5RUPLWIy9/nu9afi0euVOswC8jWlTY7gCAznBPH+V+4V/rXL/+iD/mc7Kzps8H3DXYSb9M2BUxE8SyVs=
