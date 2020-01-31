@@ -73,3 +73,10 @@ export class AppModule { }
 7. Use the new trigger to fire tags (e.g. for Google Analytics)
 
 ![Tag](./docs/images/gtm-tag.png)
+
+## i18n support
+
+You can change the content of the cookie banner after the initial setup, for example to react to a locale
+change by the user. The `CookieConsentService` provides the function
+[`setCookieConsentConfig()`](./projects/ngx-gtm-cookie-consent/src/lib/services/cookie-consent.service.ts#L59)
+which can be used to provide an updated config object.

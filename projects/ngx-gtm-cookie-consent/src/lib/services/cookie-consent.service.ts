@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { NgcCookieConsentService } from 'ngx-cookieconsent';
+import { NgcCookieConsentConfig, NgcCookieConsentService } from 'ngx-cookieconsent';
 import { Subscription } from 'rxjs';
 import { CookieConsentServiceConfig, COOKIE_CONSENT_SERVICE_CONFIG } from './cookie-consent.config';
 
@@ -47,6 +47,22 @@ export class CookieConsentService implements OnDestroy {
     }
   }
 
+  /**
+   * Sets the configuration of the underlying `ngx-cookieconsent`
+   * instance and re-initializes the service.
+   *
+   * For example, this can be used to change the text content of
+   * the cookie banner when the user switches the locale.
+   *
+   * @param conf config options for `ngx-cookieconsent`
+   */
+  setCookieConsentConfig(conf: NgcCookieConsentConfig) {
+    this.config.cookieConsentPopUpConfig = conf;
+    this.initConsentService();
+    this.initCookieConsent();
+    this.initPageViewTracking();
+  }
+
   private initPageViewTracking() {
     if (!this.config.enable) {
       return;
@@ -81,6 +97,14 @@ export class CookieConsentService implements OnDestroy {
     this.namespace.tracking.dataLayerName = this.config.gtmDataLayerName;
     (window[this.namespace.tracking.dataLayerName] as any) = [];
 
+    this.initConsentService();
+  }
+
+  /**
+   * Sets the config for the underlying `ngx-cookieconsent` and
+   * re-initializes the instance.
+   */
+  private initConsentService() {
     this.config.cookieConsentPopUpConfig.cookie.name = this.config.cookieName;
     this.consentService.destroy();
     this.consentService.init(this.config.cookieConsentPopUpConfig);
