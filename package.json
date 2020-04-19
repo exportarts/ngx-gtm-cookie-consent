@@ -25,7 +25,7 @@
     "@angular/platform-browser": "8.2.14",
     "@angular/platform-browser-dynamic": "8.2.14",
     "@angular/router": "8.2.14",
-    "core-js": "3.6.4",
+    "core-js": "3.6.5",
     "ngx-cookieconsent": "2.2.3",
     "rxjs": "6.5.5",
     "tslib": "1.11.1",
